@@ -145,18 +145,8 @@ void Flag::Initialize(int Width, int Height, float FlagSize, float spring_const,
 			//init velocity which is NULL for now
 			m_Particles[ArrayPos].m_Velocity = NULL_VECTOR;
 		}
-
 	
-	//Cloth must be broken down into into triangles. 
-    //The effect of the wind on the cloth is calculated on each of the triangles individually. 
-	//At each point of the cloth, the sum of the effects of the wind on the surrounding triangles is calculated
 
-	//Init index array:
-	/*
-		*-*-*-*-*-*-*
-		|\|\|\|\|\|\|
-		*-*-*-*-*-*-*
-	*/
 
 	m_NumIndices = 3 * 2 * (Width - 1) * (Height - 1);
 	m_Indices = new GLuint[m_NumIndices];
@@ -265,7 +255,7 @@ double scaler1 = 1.0;
 			m_Particles[ArrayPos].m_Accelaration = gravity/scaler1;
 
 			
-			//Calculate accelaration for a particle ass the sum of forces of its 8 nieghbors
+			//Calculate accelaration for a particle add the sum of forces of its 8 nieghbors
 			m_Particles[ArrayPos].m_Accelaration = m_Particles[ArrayPos].m_Accelaration + GetForce(xc-1,yc, VertexPos, m_DirectDistance)/scaler;
 			m_Particles[ArrayPos].m_Accelaration = m_Particles[ArrayPos].m_Accelaration + GetForce(xc+1,yc, VertexPos, m_DirectDistance)/scaler;
 			m_Particles[ArrayPos].m_Accelaration = m_Particles[ArrayPos].m_Accelaration + GetForce(xc,  yc-1, VertexPos, m_DirectDistance)/scaler;
