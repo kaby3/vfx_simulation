@@ -109,16 +109,13 @@ void Flag::Initialize(int Width, int Height, float FlagSize, float spring_const,
 	this->m_Damping = damping;
 	this->m_Initialized = true;
 
-	//Flag.Initialize(40,26, 2.0f, 100.0f, 0.977f);
-	//Create an array of particles that represents the flag particle matrix
+	
 	this->m_Particles = new Particle[this->m_NumParticles]; 
 
-	    
-	//Flag size is the amount of space a flag takes
-	//Direct Distane hold the distance between each particle = the length of a spring
+	
 	m_DirectDistance = FlagSize /(Width - 1);
 
-	//Holds the distance between two particles that are diagonally across from each other 
+	
 	m_AslantDistance = sqrt(2.0f)* m_DirectDistance;
 
 
@@ -201,12 +198,7 @@ void Flag::UpdateNormals()
 		for (int yc = 0; yc < m_Height - 1; yc++)
 		{
 			int ArrayPos = yc * m_Width + xc;
-
-			//Calculating the normal:
-			//Take the direction vectors 
-			//1.) from the left to the right neighbor 
-			//2.) from the upper to the lower neighbor.
-			//The vector orthogonal to these 
+		
 
 			Vector u,v,p1,p2;	//u and v are direction vectors. p1 / p2: temporary used (storing the points)
 
@@ -238,8 +230,7 @@ void Flag::UpdateVertices(float dtime, Vector gravity, Vector wind)
 double scaler = 1.0;
 double scaler1 = 1.0;
 	
-    //Vector * a = new Vector [m_Width * m_Height];  //acceleration array
-
+   
 	for (int xc = 0; xc < m_Width; xc ++){
 		for (int yc = 0; yc < m_Height; yc++){
 		//if (xc > 0 && xc < (m_Width - 1))
