@@ -303,9 +303,7 @@ double scaler1 = 1.0;
 			
 			wind.x = wind.x * DotProduct;
 			wind.y = wind.y * DotProduct;
-			wind.z = wind.z * DotProduct;
-
-			
+			wind.z = wind.z * DotProduct;			
 
 
 			m_Particles[ArrayPos].m_Accelaration =  m_Particles[ArrayPos].m_Accelaration + wind;
@@ -329,12 +327,7 @@ double scaler1 = 1.0;
 			
 			m_Particles[ArrayPos].m_Velocity = m_Particles[ArrayPos].m_Velocity * m_GlobalDamping;
 
-			m_Particles[ArrayPos].m_pos = m_Particles[ArrayPos].m_pos + m_Particles[ArrayPos].m_Velocity * m_GlobalstepSize;
-
-			/*vecDebug.x = m_Particles[ArrayPos].m_pos.x;
-			vecDebug.y = m_Particles[ArrayPos].m_pos.y;
-			vecDebug.z = m_Particles[ArrayPos].m_pos.z;*/
-
+			m_Particles[ArrayPos].m_pos = m_Particles[ArrayPos].m_pos + m_Particles[ArrayPos].m_Velocity * m_GlobalstepSize;	
 
 		}
 
@@ -387,12 +380,6 @@ void Flag::setMass(int i, int j, float m)
 
 void Flag::Render()
 {
-	//if (!m_Initialized) return;
-
-	//DRAW FLAG
-		
-	//glVertexPointer specifies the location and data format of an array of vertex 
-	//coordinates to use when rendering. 
 	
 	glVertexPointer(	3,
 						GL_FLOAT,
@@ -431,8 +418,7 @@ void DrawScene(void)
 void Display(void)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glLoadIdentity();
-	
+	glLoadIdentity();	
 	
 	glTranslatef( -1.0f, 0.0f, -15.0f );
 	
